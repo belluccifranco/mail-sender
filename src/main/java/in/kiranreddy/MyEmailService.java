@@ -10,20 +10,20 @@ import org.springframework.stereotype.Service;
 @Service
 public class MyEmailService {
 
-    private JavaMailSender javaMailSender;
+  private JavaMailSender javaMailSender;
 
-    @Autowired
-    public MyEmailService(JavaMailSender javaMailSender) {
-        this.javaMailSender = javaMailSender;
-    }
+  @Autowired
+  public MyEmailService(JavaMailSender javaMailSender) {
+    this.javaMailSender = javaMailSender;
+  }
 
-    @Async
-    public void sendMail(String toEmail, String subject, String message) throws MailException {
-        SimpleMailMessage mailMessage = new SimpleMailMessage();
-        mailMessage.setTo(toEmail);
-        mailMessage.setSubject(subject);
-        mailMessage.setText(message);
-        mailMessage.setFrom("ventas@globodistribuciones.com");
-        javaMailSender.send(mailMessage);
-    }
+  @Async
+  public void sendMail(String toEmail, String subject, String message) throws MailException {
+    SimpleMailMessage mailMessage = new SimpleMailMessage();
+    mailMessage.setTo(toEmail);
+    mailMessage.setSubject(subject);
+    mailMessage.setText(message);
+    mailMessage.setFrom("ventas@globodistribuciones.com");
+    javaMailSender.send(mailMessage);
+  }
 }
