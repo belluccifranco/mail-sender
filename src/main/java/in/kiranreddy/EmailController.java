@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class EmailController {
 
-    private MyEmailService emailService;
+  private MyEmailService emailService;
 
-    @Autowired
-    public EmailController(MyEmailService emailService) {
-        this.emailService = emailService;
-    }
+  @Autowired
+  public EmailController(MyEmailService emailService) {
+    this.emailService = emailService;
+  }
 
-    @GetMapping("/sendEmail")
-    @ResponseBody
-    public String sendEmail() {
-        emailService.sendMail("belluccifranco@gmail.com","Test subject","Test mail");
-        return "OK!";
-    }
+  @GetMapping("/sendEmail")
+  @ResponseBody
+  public String sendEmail() {
+    emailService.sendMail("belluccifranco@gmail.com", "Test subject", "Test mail");
+    return "OK!";
+  }
 }
